@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +47,16 @@ public class MarkServiceImpl implements MarkService {
 	
 
 
-
+	   
+    @Override
+    public List<Mark> getAllMarks() {
+        return markRepository.findAll();
+    }
+    
+    @Override
+    public Optional<Mark> getMarksByStudentId(String studentId) {
+        return markRepository.findById(studentId);
+    }
 
 
 }
